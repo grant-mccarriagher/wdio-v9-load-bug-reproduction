@@ -1,0 +1,7 @@
+node_modules
+driver-logs
+logs
+.DS_Store
+tmp/*.log
+.idea
+.vscode/
