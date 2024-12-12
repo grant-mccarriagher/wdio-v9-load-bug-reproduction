@@ -13,8 +13,12 @@ Given('I have reached a page', async function () {
 });
 
 When('I load the same page again', async function () {
-  await browser.url('https://app.acvauctions.com/');
-  await $('.acv-logo').waitForDisplayed();
+  for(let i = 0; i < 10; i++) {
+    await browser.url('https://app.acvauctions.com/');
+    await $('.acv-logo').waitForDisplayed();
+    await browser.pause(5000);
+    await $('.acv-logo').waitForDisplayed();
+  }
 });
 
 Then('I should see an error', async function () {
