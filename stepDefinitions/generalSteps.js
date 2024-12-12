@@ -6,9 +6,16 @@ Given('I have reached a page', async function () {
 
   const mock = await browser.mock('https://www.some-website.com/*');
 
-  mock.respond({}, {
-    statusCode: 404,
-    fetchResponse: false
+  mock.respond([{
+    title: 'Injected Todo',
+    order: null,
+    completed: false,
+    url: "http://todo-backend-express-knex.herokuapp.com/916"
+  }], {
+      statusCode: 404,
+      headers: {
+          'x-custom-header': 'foobar'
+      }
   });
 });
 
